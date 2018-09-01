@@ -37,7 +37,7 @@ def login():
   url = 'https://pizza-admin.herokuapp.com/api/login/'
   r = requests.post(url, data={"username": user, "password": password})
   r = r.json()
-  return r['data']
+  return r
 
 # Called when button is briefly tapped.  Invokes time/temperature script.
 def tap():
