@@ -22,19 +22,21 @@ url = "https://pizza-admin.herokuapp.com/api/print/Napoli"
 headers = {"X-Auth-Token": auth, "X-User-Id": userId}
 resp = requests.get(url, headers=headers)
 resp = resp.json()
+resp = resp['data']
 
-#print header
-printer.justify('C')
-printer.setSize('M')
-printer.println("Napoli Pizza")
-printer.setSize('S')
-printer.println("855 Ridge Road West")
-printer.println("")
-printer.justify('L')
-printer.println("ORDER NUM: ")
-printer.println("DATE: ")
-printer.println("")
+if resp != None:
+    #print header
+    printer.justify('C')
+    printer.setSize('M')
+    printer.println("Napoli Pizza")
+    printer.setSize('S')
+    printer.println("855 Ridge Road West")
+    printer.println("")
+    printer.justify('L')
+    printer.println("ORDER NUM: ")
+    printer.println("DATE: ")
+    printer.println("")
 
-#print customer info
+    #print customer info
 
-#print order info
+    #print order info

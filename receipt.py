@@ -23,50 +23,52 @@ headers = {"X-Auth-Token": auth, "X-User-Id": userId}
 resp = requests.get(url, headers=headers)
 resp = resp.json()
 resp = resp['data']
-# info for receipt
-cart = resp['cart']
-orderNum = resp['orderNum']
-orderType = resp['deliveryType']
 
-subtotal = resp['subtotal']
-tax = resp['tax']
-tip = resp['tip']
-deliv = resp['delivery']
-total = float(subtotal) + float(tax) + float(tip) + float(deliv)
-total = str(total)
+if resp != None:
+    # info for receipt
+    cart = resp['cart']
+    orderNum = resp['orderNum']
+    orderType = resp['deliveryType']
 
-date = resp['createdAt']
-date = date.split(':')
-date = date[0]
-phone = resp['phone']
+    subtotal = resp['subtotal']
+    tax = resp['tax']
+    tip = resp['tip']
+    deliv = resp['delivery']
+    total = float(subtotal) + float(tax) + float(tip) + float(deliv)
+    total = str(total)
 
-#print header
-printer.justify('C')
-printer.setSize('M')
-printer.println("Napoli Pizza")
-printer.setSize('S')
-printer.println("855 Ridge Road West")
-printer.println("")
-printer.justify('L')
-printer.println("ORDER NUM: " + orderNum)
-printer.println("ORDER TYPE: " + orderType)
-printer.println("DATE: " + date)
-printer.println("")
+    date = resp['createdAt']
+    date = date.split(':')
+    date = date[0]
+    phone = resp['phone']
 
-#print items ordered
-for item in cart:
+    #print header
+    printer.justify('C')
+    printer.setSize('M')
+    printer.println("Napoli Pizza")
+    printer.setSize('S')
+    printer.println("855 Ridge Road West")
+    printer.println("")
     printer.justify('L')
-    printer.print(item['name'])
-    printer.justify('R')
-    printer.println(item['price'])
+    printer.println("ORDER NUM: " + orderNum)
+    printer.println("ORDER TYPE: " + orderType)
+    printer.println("DATE: " + date)
+    printer.println("")
 
-#print totals
-printer.justify('R')
-printer.println('Subtotal: $' + subtotal)
-printer.println('Delivery: $' + deliv)
-printer.println('Tip: $' + tip)
-printer.println('Tax: $' + tax)
-printer.println('Total: $' + total)
-printer.println("")
-printer.justify('C')
-printer.println("Thank You")
+    #print items ordered
+    for item in cart:
+        printer.justify('L')
+        printer.print(item['name'])
+        printer.justify('R')
+        printer.println(item['price'])
+
+    #print totals
+    printer.justify('R')
+    printer.println('Subtotal: $' + subtotal)
+    printer.println('Delivery: $' + deliv)
+    printer.println('Tip: $' + tip)
+    printer.println('Tax: $' + tax)
+    printer.println('Total: $' + total)
+    printer.println("")
+    printer.justify('C')
+    printer.println("Thank You")
