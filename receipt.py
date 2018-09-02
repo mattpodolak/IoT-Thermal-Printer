@@ -37,6 +37,8 @@ if resp != None:
     cart = resp['cart']
     orderNum = resp['orderNum']
     orderType = resp['deliveryType']
+    orderType = orderType.split(':')
+    orderType = orderType[0]
 
     subtotal = resp['subtotal']
     tax = resp['tax']
@@ -67,7 +69,7 @@ if resp != None:
     for item in cart:
         printer.justify('L')
         printer.print1(str(item['name']))
-        printer.justify('R')
+        #printer.justify('R')
         printer.print1(' $' + str(item['price']) + '\n')
 
     printer.feed(1)
