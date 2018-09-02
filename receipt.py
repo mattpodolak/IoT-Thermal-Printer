@@ -22,6 +22,7 @@ url = "https://pizza-admin.herokuapp.com/api/receipt/Napoli"
 headers = {"X-Auth-Token": auth, "X-User-Id": userId}
 resp = requests.get(url, headers=headers)
 resp = resp.json()
+print(resp)
 resp = resp['data']
 
 if resp != None:
