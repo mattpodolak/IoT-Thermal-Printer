@@ -68,7 +68,13 @@ if resp != None:
     #print items ordered
     for item in cart:
         printer.justify('R')
-        printer.println(str(item['name']) + '\t\t\t\t $' + str(item['price']))
+        item_name = str(item['name'])
+        if len(item_name) < 7:
+            printer.println(item_name + '\t\t\t\t\t $' + str(item['price']))
+        elif len(item_name) < 12:
+            printer.println(item_name + '\t\t\t\t $' + str(item['price']))
+        else:
+            printer.println(item_name + '\t\t\t $' + str(item['price'])) 
 
     printer.feed(1)
     printer.justify('R')
