@@ -57,11 +57,11 @@ if resp != None:
     printer.println("")
 
     #print items ordered
-    for item in cart:
-        printer.justify('L')
-        printer.println(item['name'])
-        printer.justify('R')
-        printer.println(item['price'])
+    # for item in cart:
+    #     printer.justify('L')
+    #     printer.print(item['name'])
+    #     printer.justify('R')
+    #     printer.println(item['price'])
 
     #print totals
     printer.justify('R')
