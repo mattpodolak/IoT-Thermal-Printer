@@ -75,8 +75,8 @@ time.sleep(30)
 try:
 	s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 	s.connect(('8.8.8.8', 0))
-	printer.print('My IP address is ' + s.getsockname()[0])
-	printer.feed(3)
+	#printer.print('My IP address is ' + s.getsockname()[0])
+	#printer.feed(3)
 except:
 	printer.boldOn()
 	printer.println('Network is unreachable.')

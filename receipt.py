@@ -66,7 +66,7 @@ if resp != None:
     #print items ordered
     for item in cart:
         printer.justify('L')
-        printer.print(item['name'])
+        printer.println(item['name'])
         printer.justify('R')
         printer.println(item['price'])
 
