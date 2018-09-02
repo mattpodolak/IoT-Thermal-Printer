@@ -1,10 +1,18 @@
 #!/usr/bin/python
 
 from Adafruit_Thermal import *
-from main import login
 import requests
 
 printer = Adafruit_Thermal("/dev/serial0", 19200, timeout=5)
+
+#login to use API
+def login():
+  user = "Napoli"
+  password = "PASSWORD"
+  url = 'https://pizza-admin.herokuapp.com/api/login/'
+  r = requests.post(url, data={"username": user, "password": password})
+  r = r.json()
+  return r
 
 while 1:
     # try logging in
@@ -22,7 +30,6 @@ url = "https://pizza-admin.herokuapp.com/api/receipt/Napoli"
 headers = {"X-Auth-Token": auth, "X-User-Id": userId}
 resp = requests.get(url, headers=headers)
 resp = resp.json()
-print(resp)
 resp = resp['data']
 
 if resp != None:

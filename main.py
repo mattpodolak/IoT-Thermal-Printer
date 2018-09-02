@@ -30,16 +30,6 @@ dailyFlag    = False # Set after daily trigger occurs
 lastId       = '1'   # State information passed to/from interval script
 printer      = Adafruit_Thermal("/dev/serial0", 19200, timeout=5)
 
-#login to use API
-def login():
-  user = "Napoli"
-  password = "PASSWORD"
-  url = 'https://pizza-admin.herokuapp.com/api/login/'
-  r = requests.post(url, data={"username": user, "password": password})
-  r = r.json()
-  printer.print('Login')
-  return r
-
 # Called when button is briefly tapped.  Invokes time/temperature script.
 def tap():
   GPIO.output(ledPin, GPIO.HIGH)  # LED on while working
