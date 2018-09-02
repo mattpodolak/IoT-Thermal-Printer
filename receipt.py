@@ -68,7 +68,7 @@ if resp != None:
         printer.justify('L')
         printer.print1(str(item['name']))
         printer.justify('R')
-        printer.println(item['price'])
+        printer.print1(' $' + str(item['price']) + '\n')
 
     printer.feed(1)
     printer.justify('R')
