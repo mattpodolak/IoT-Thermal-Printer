@@ -63,14 +63,13 @@ if resp != None:
     printer.println("DATE: " + date)
     printer.println("")
 
-    #print items ordered
-    # for item in cart:
-    #     printer.justify('L')
-    #     printer.print(item['name'])
-    #     printer.justify('R')
-    #     printer.println(item['price'])
+    print items ordered
+    for item in cart:
+        printer.justify('L')
+        printer.print(item['name'])
+        printer.justify('R')
+        printer.println(item['price'])
 
-    #print totals
     printer.justify('R')
     printer.println('Subtotal: $' + str(subtotal))
     printer.println('Delivery: $' + str(deliv))
@@ -80,3 +79,4 @@ if resp != None:
     printer.println("")
     printer.justify('C')
     printer.println("Thank You")
+    printer.feed(3)
