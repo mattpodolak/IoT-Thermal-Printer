@@ -724,7 +724,7 @@ class Adafruit_Thermal(Serial):
 	# Overloading print() in Python pre-3.0 is dirty pool,
 	# but these are here to provide more direct compatibility
 	# with existing code written for the Arduino library.
-	def print(self, *args, **kwargs):
+	def print1(self, *args, **kwargs):
 		for arg in args:
 			self.write(str(arg))
 
