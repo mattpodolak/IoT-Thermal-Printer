@@ -78,7 +78,10 @@ if resp != None:
     #print customer info
     printer.println("CUSTOMER: ")
     printer.println(name)
-    printer.println(address_one + ', ' + address_two)
+    if address_two is not "":
+        printer.println(address_one + ', ' + address_two)
+    else:
+        printer.println(address_one)
     printer.println(postal_code + ', ' + city)
 
     #print items ordered
@@ -101,7 +104,7 @@ if resp != None:
         try:
             toppings = custom['toppings']
             printer.println('Pizza 1')
-            if toppings != null:
+            if toppings is not None:
                 for topping in toppings:
                     printer.println(topping)
             else:
@@ -112,7 +115,7 @@ if resp != None:
         try:
             toppings2 = custom['toppings2']
             printer.println('Pizza 2')
-            if toppings != null:
+            if toppings is not None:
                 for topping in toppings2:
                     printer.println(topping)
             else:
@@ -123,7 +126,7 @@ if resp != None:
         try:
             toppings3 = custom['toppings3']
             printer.println('Pizza 3')
-            if toppings != null:
+            if toppings is not None:
                 for topping in toppings3:
                     printer.println(topping)
             else:
@@ -143,17 +146,17 @@ if resp != None:
         except:
             print('no pasta')
 
-        if special_notes != null:
+        if special_notes is not None:
             printer.println(special_notes)
         
         if addons !=null:
             printer.println(addons)
         
-        if pops != null:
+        if pops is not None:
             for pop in pops:
                 printer.println(pop)
         
-        if dips != null:
+        if dips is not None:
             for dip in dips:
                 printer.println(dip)
 
