@@ -85,7 +85,7 @@ if resp != None:
         printer.println(address_one)
     printer.println(postal_code + ', ' + city)
     printer.println("")
-    
+
     #print items ordered
     for item in cart:
         printer.justify('R')
@@ -104,7 +104,7 @@ if resp != None:
         dips = custom['dips']
 
         if special_notes is not None:
-            printer.println('\t Note:'+special_notes)
+            printer.println('\tNote: '+special_notes)
 
         if addons is not None:
             printer.println('\t'+addons)
