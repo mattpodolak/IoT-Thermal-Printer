@@ -63,6 +63,7 @@ if resp != None:
     postal_code = resp['postal_code']
 
     #print header
+    printer.feed(3)
     printer.justify('C')
     printer.setSize('M')
     printer.println("Napoli Pizza")

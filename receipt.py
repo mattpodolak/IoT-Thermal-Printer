@@ -53,6 +53,7 @@ if resp != None:
     phone = resp['phone']
 
     #print header
+    printer.feed(3)
     printer.justify('C')
     printer.setSize('M')
     printer.println("Napoli Pizza")
