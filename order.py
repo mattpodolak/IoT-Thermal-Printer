@@ -84,7 +84,8 @@ if resp != None:
     else:
         printer.println(address_one)
     printer.println(postal_code + ', ' + city)
-
+    printer.println("")
+    
     #print items ordered
     for item in cart:
         printer.justify('R')
