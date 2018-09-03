@@ -51,7 +51,7 @@ def hold():
 # Invokes order script.
 def interval():
   GPIO.output(ledPin, GPIO.HIGH)
-  #p = subprocess.Popen(["python", "order.py"])
+  p = subprocess.Popen(["python", "order.py"])
   GPIO.output(ledPin, GPIO.LOW)
 
 
