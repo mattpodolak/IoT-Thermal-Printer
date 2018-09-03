@@ -60,7 +60,7 @@ if resp != None:
     address_one = resp['address_one']
     address_two = resp['address_two']
     city = resp['city']
-    postal_code = ['postal_code']
+    postal_code = resp['postal_code']
 
     #print header
     printer.justify('C')
@@ -94,71 +94,73 @@ if resp != None:
             printer.println(item_name + '\t\t\t\t $' + str(item['price']))
         else:
             printer.println(item_name + '\t\t\t $' + str(item['price'])) 
-        
+        printer.justify('L')
         custom = item['custom']
         special_notes = custom['specialNotes']
         addons = custom['addOns']
         pops = custom['pops']
         dips = custom['dips']
 
+        if special_notes is not None:
+            printer.println('\t Note:'+special_notes)
+
+        if addons is not None:
+            printer.println('\t'+addons)
+
         try:
             toppings = custom['toppings']
-            printer.println('Pizza 1')
+            printer.println('\tPizza 1')
             if toppings is not None:
                 for topping in toppings:
-                    printer.println(topping)
+                    printer.println('\t\t'+topping)
             else:
-                printer.println('No Toppings') 
+                printer.println('\t\tNo Added Toppings') 
         except:
             print('no toppings')  
 
         try:
             toppings2 = custom['toppings2']
-            printer.println('Pizza 2')
+            printer.println('\tPizza 2')
             if toppings is not None:
                 for topping in toppings2:
-                    printer.println(topping)
+                    printer.println('\t\t'+topping)
             else:
-                printer.println('No Toppings') 
+                printer.println('\t\tNo Added Toppings') 
         except:
             print('no toppings') 
 
         try:
             toppings3 = custom['toppings3']
-            printer.println('Pizza 3')
+            printer.println('\tPizza 3')
             if toppings is not None:
                 for topping in toppings3:
-                    printer.println(topping)
+                    printer.println('\t\t'+topping)
             else:
-                printer.println('No Toppings') 
+                printer.println('\t\tNo Added Toppings') 
         except:
             print('no toppings')  
         
         try:
             wings = custom['wings']
-            printer.println('Wings: ' + wings) 
+            printer.println('\tWings: ' + wings) 
         except:
             print('no wings')
         
         try:
             pasta = custom['pasta']
-            printer.println('Pasta: ' + pasta) 
+            printer.println('\tPasta: ' + pasta) 
         except:
             print('no pasta')
-
-        if special_notes is not None:
-            printer.println(special_notes)
-        
-        if addons !=null:
-            printer.println(addons)
         
         if pops is not None:
+            printer.println('\tPop')
             for pop in pops:
-                printer.println(pop)
+                printer.println('\t\t'+pop)
         
         if dips is not None:
+            printer.println('\tDip')
             for dip in dips:
-                printer.println(dip)
+                printer.println('\t\t'+dip)
 
     printer.feed(1)
     printer.justify('R')
