@@ -130,7 +130,18 @@ if resp != None:
                 printer.println('No Toppings') 
         except:
             print('no toppings')  
-
+        
+        try:
+            wings = custom['wings']
+            printer.println('Wings: ' + wings) 
+        except:
+            print('no wings')
+        
+        try:
+            pasta = custom['pasta']
+            printer.println('Pasta: ' + pasta) 
+        except:
+            print('no pasta')
 
         if special_notes != null:
             printer.println(special_notes)
@@ -145,3 +156,15 @@ if resp != None:
         if dips != null:
             for dip in dips:
                 printer.println(dip)
+
+    printer.feed(1)
+    printer.justify('R')
+    printer.println('Subtotal: $' + str(subtotal))
+    printer.println('Delivery: $' + str(deliv))
+    printer.println('Tip: $' + str(tip))
+    printer.println('Tax: $' + str(tax))
+    printer.println('Total: $' + str(total))
+    printer.println("")
+    printer.justify('C')
+    printer.println("Thank You")
+    printer.feed(3)
