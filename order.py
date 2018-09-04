@@ -79,6 +79,7 @@ if resp != None:
     #print customer info
     printer.println("CUSTOMER: ")
     printer.println(name)
+    printer.println('Phone: ' + phone)
     if address_two is not "":
         printer.println(address_one + ', ' + address_two)
     else:
